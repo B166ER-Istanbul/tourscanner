@@ -60,6 +60,7 @@ function App() {
 
     if(!input_value){
       setIsError('You must enter at least 1 character.')
+      setFormLoading(false)
       return false
     }
 

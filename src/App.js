@@ -3,6 +3,8 @@ import './assets/css/bootstrap.css';
 import './assets/css/main.css';
 
 import React, { useEffect, useState, useRef } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleRight, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const scrollerRef = useRef();
@@ -131,7 +133,7 @@ function App() {
                 </div>
                 <div className={`description-block`}>
                   <div className="left-arrow">
-                    <i className="fa fa-angle-right"></i>
+                    <FontAwesomeIcon icon={faAngleRight} />
                   </div>
                   <div className="right-side">
                     {item.title}
@@ -151,7 +153,9 @@ function App() {
             <div className="bookmark-form">
               <input type="text" className="form-control solid folder_input" />
               <button className={`btn btn-main ${formLoading ? 'loading' : ''}`} data-id={imageId} onClick={() => saveBookmark()}>
-                <i className="fa fa-long-arrow-right"></i>
+                  <i>
+                    <FontAwesomeIcon icon={faLongArrowAltRight} />
+                  </i>
                 <div className="loader"></div>
               </button>
             </div>

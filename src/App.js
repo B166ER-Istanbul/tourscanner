@@ -58,6 +58,11 @@ function App() {
     setFormLoading(true)
     setIsError(null)
 
+    if(!input_value){
+      setIsError('You must enter at least 1 character.')
+      return false
+    }
+
     await axios.post(`https://tourscanner.com/interview/save_image/${imageId}`)
     .then(function (response) {
       setFormLoading(false)

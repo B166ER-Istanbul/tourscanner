@@ -42,6 +42,11 @@ The project is written in ReactJS.
 ### Installation
 
 ```bash
+npm install
+```
+
+
+```bash
 npm start
 ```
 

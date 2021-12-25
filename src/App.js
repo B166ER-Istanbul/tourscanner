@@ -27,8 +27,8 @@ function App() {
     .then(function (response) {
       setImages(response.data)
     })
-    setTabs(JSON.parse(localStorage.getItem('tab_list')))
-    setBookMarks(JSON.parse(localStorage.getItem('bookmark_list')))
+    //setTabs(JSON.parse(localStorage.getItem('tab_list')))
+    //setBookMarks(JSON.parse(localStorage.getItem('bookmark_list')))
   }
 
   useEffect(() => {

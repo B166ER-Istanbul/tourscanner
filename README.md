@@ -36,6 +36,8 @@ E1) You don't need to waste time making the component pretty, as long as it hits
 E2) You can handle any issue that isn't explicitly mentioned above in the way you find most expedient. 
 E3) For testing convenience only, the image ids are always sequential and start from 1. The code should not rely on that.
 
+### Detail
+The project is written in ReactJS.
 
 ### Installation
 

@@ -27,8 +27,8 @@ function App() {
     .then(function (response) {
       setImages(response.data)
     })
-    //setTabs(JSON.parse(localStorage.getItem('tab_list')))
-    //setBookMarks(JSON.parse(localStorage.getItem('bookmark_list')))
+    setTabs(JSON.parse(localStorage.getItem('tab_list')))
+    setBookMarks(JSON.parse(localStorage.getItem('bookmark_list')))
   }
 
   useEffect(() => {
@@ -116,7 +116,7 @@ function App() {
               <div className={`filter-tab ${!selectedTab ? 'selected' : ''}`} onClick={() => setSelectedTab(false)}>
                 Show All
               </div>
-              {tabs.map((item, i) => (
+              {tabs&&tabs.map((item, i) => (
                 <div className={`filter-tab ${selectedTab===item ? 'selected' : ''}`} onClick={() => setSelectedTab(item)} key={i}>
                   {item}
                 </div>
@@ -125,8 +125,8 @@ function App() {
           </div>
           <div className="gallery-row">
             {images.map((item, i) => (
-              <div className={`gallery-card ${bookmarks.includes(item.image_id) ? 'bookmarked' : ''} ${!shown.length||shown.includes(item.image_id) ? '' : 'd-none'}`} key={i}>
-                <div className="image-block" onClick={() => bookmarks.includes(item.image_id) ? '' : getBookmarkedCount(item.image_id)}>
+              <div className={`gallery-card ${bookmarks&&bookmarks.includes(item.image_id) ? 'bookmarked' : ''} ${!shown.length||shown.includes(item.image_id) ? '' : 'd-none'}`} key={i}>
+                <div className="image-block" onClick={() => bookmarks&&bookmarks.includes(item.image_id) ? '' : getBookmarkedCount(item.image_id)}>
                   <img src={item.url} alt={item.title} className="img-fluid" />
                 </div>
                 <div className={`description-block`}>
@@ -145,8 +145,7 @@ function App() {
       <div className={`bookmark-modal ${openModal ? 'active' : ''}`}>
         <div className="bookmark-background" onClick={() => {
           setOpenModal(false)
-          setIsError(null)
-        }}></div>
+          setIsError(null)}}></div>
         <div className="bookmark-card">
           <p>Which folder would you wish to save your images?</p>
             <div className="bookmark-form">
@@ -165,6 +164,7 @@ function App() {
         </div>
       </div>
       </section>
+    
   );
 }
 

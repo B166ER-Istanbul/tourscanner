@@ -166,7 +166,7 @@ function App() {
               </button>
             </div>
             {isError ? 
-            <div className={`bookmark-answer`}>{isError}</div> : ''}
+            <div className={`bookmark-answer`} style={{ marginTop:7 }}>{isError}</div> : ''}
             <hr />
           <div className="bookmarked-bottom">
             This images was bookmarked <strong className="bookmarked-before"></strong> times before.

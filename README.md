@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# TourScanner Assignment Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project goals
 
-## Available Scripts
 
-In the project directory, you can run:
+The task consists of a simple gallery component.
+You may use PHP if you want (or code it all in Javascript), and use (or not use) any framework you are comfortable with.
 
-### `npm start`
+The images can be found here:
+https://tourscanner.com/interview/images
+The endpoint is open, and returns a list of image urls and titles in JSON.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Requirements:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A1) Display the images as 300x272 boxes. You can simply display the provided images in rows. 
+A2) The image files provided by the api can vary in size. Ensure they aren't shown off center or stretched out, and that they fill the whole 300x272 box.
+A3) There should be uniform horizontal spaces between each image, and uniform vertical spaces between each row.
 
-### `npm test`
+B1) Underneath every image/box, add the following: 
+	- On the left side, a small arrow icon, centered vertically with the title (see below)
+	- On the right, the title of the image. Make sure that the title doesn't occupy more than 3 lines, otherwise truncate it and show an ellipsis at the end.
+B2) The title of the image should be highlighted if the image is bookmarked (see below). You can do that for example by changing it to a different color.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+C1) When the user clicks on an image that they haven't bookmarked yet, Send the id of the image to the following open GET endpoint https://tourscanner.com/interview/save_image/{image_id}
+C2) The server will answer with the number of times that that image id has been bookmarked before. display a simple prompt at the center of the page asking for the name of the "folder" they wish to save the image in, and showing the number of times it has been saved before.
+C3) After the user has provided a folder name, send the id of the image to the following open POST endpoint https://tourscanner.com/interview/save_image/{image_id}. 
+The server answer will report the success or failure of the action. Do not close the prompt until the call is complete. Save the image and folder in local storage, so that images can retain their saved status and their folder on subsequent page loads.
+C4) The user should also be able to close the prompt without saving anything.
 
-### `npm run build`
+D1) Add a basic tabs system above the images, in order to display the folders of the bookmarked images. There should be an 'all images' tab enabled from the start. All nonempty folders should also show up as clickable tabs. When selected, the view should switch to showing only the images saved in that folder.
+D2) If you scroll the page, once you get past the tabs and they're no longer visible, they should show up fixed at the bottom of the page instead. This alternate navbar should vanish once you scroll back up and can see the original, static tabs again.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Important Notes:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+E1) You don't need to waste time making the component pretty, as long as it hits all requirements. We won't be judging the design as long as it's not clearly broken.
+E2) You can handle any issue that isn't explicitly mentioned above in the way you find most expedient. 
+E3) For testing convenience only, the image ids are always sequential and start from 1. The code should not rely on that.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+And navigate to generated server link (http://localhost:3000/)
